@@ -142,3 +142,7 @@ This project does not host proprietary content.
 APKs are built using publicly available tools and patches.
 
 </div>
+
+## <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.gif" alt="🌟" width="32" height="32"></picture>Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Svznify/MorpheX&type=date&legend=top-left)](https://www.star-history.com/#Svznify/MorpheX&type=date&legend=top-left)
