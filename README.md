@@ -27,7 +27,9 @@ The project now adopts **Morphe** as its base, continuing development through co
 
 This repository exists **solely to distribute pre-built APKs** generated using publicly available, upstream tools.
 
-🌐 **Project Page:** https://svznify.github.io/MorpheX/
+🌐 **Project Page:** https://svznify.github.io/MorpheX/ 
+<br>
+<a href="https://t.me/rvb27/1610"><img src="https://img.shields.io/badge/Telegram-Official_MorpheX-blue?style=for-the-badge&logo=Telegram&logoColor=white" alt="Website" /></a>
 
 ---
 
