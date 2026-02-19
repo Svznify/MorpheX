@@ -146,5 +146,10 @@ APKs are built using publicly available tools and patches.
 </div>
 
 ## <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.gif" alt="🌟" width="32" height="32"></picture>Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=Svznify/MorpheX&type=date&legend=top-left)](https://www.star-history.com/#Svznify/MorpheX&type=date&legend=top-left)
+<a href="https://www.star-history.com/#Svznify/MorpheX&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Svznify/MorpheX&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Svznify/MorpheX&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Svznify/MorpheX&type=date&legend=top-left" />
+ </picture>
+</a>
