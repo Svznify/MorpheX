@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MorpheX — YouTube Morphe, pre-built and ready to install</title>
+  <meta name="description" content="MorpheX distributes pre-built YouTube Morphe APKs - the community continuation of RVX (ReVanced Extended). Ad-free playback, Material You, Picture-in-Picture, SponsorBlock and deep customisation. Unofficial.">
+  <meta name="theme-color" content="#0f0f0f">
+  <meta property="og:title" content="MorpheX — YouTube Morphe, pre-built">
+  <meta property="og:description" content="Ad-free playback, Material You, PiP, SponsorBlock and deep customisation. Pre-built YouTube Morphe APKs for Android. Unofficial community releases.">
+  <meta property="og:image" content="https://github.com/user-attachments/assets/d75dfcd7-d7cd-4438-a462-edd273705666">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='14' width='56' height='36' rx='11' fill='%23ff0033'/%3E%3Cpath d='M27 24l14 8-14 8z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = JSON.parse(localStorage.getItem('mx-theme')); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = t;
+      document.documentElement.classList.add('no-aos'); // removed once AOS initialises, so content never stays hidden
+    })();
+  </script>
+
+  <!-- UI libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Roboto', 'Arial', 'sans-serif'] },
+        colors: { yt: { bg: 'var(--bg)', bg2: 'var(--bg2)', surface: 'var(--surface)', surface2: 'var(--surface2)', hover: 'var(--hover)', text: 'var(--text)', muted: 'var(--muted)', line: 'var(--line)', red: 'var(--red)', blue: 'var(--blue)' } },
+      } },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/scale.css">
+  <link rel="stylesheet" href="assets/app.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/common.js"></script>
+  <script defer src="assets/landing.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+</head>
+
+<body data-page="home" data-layout="site" x-data="landing()" @load.window="window.AOS && (AOS.init({ once: true, duration: 700, offset: 60, easing: 'ease-out-cubic' }), document.documentElement.classList.remove('no-aos'))">
+<!-- navbar + footer are injected by assets/common.js -->
+
+<main id="main">
+  <noscript>
+    <div style="padding:96px 24px 24px;font-size:16px">MorpheX distributes pre-built YouTube Morphe APKs. This page needs JavaScript - you can still grab the APKs from the
+      <a href="https://github.com/Svznify/MorpheX/releases" style="text-decoration:underline">GitHub releases</a>.</div>
+  </noscript>
+
+  <!-- =====================================================  HERO -->
+  <section class="hero">
+    <div class="mesh"></div><div class="dotgrid"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center pb-20 lg:pb-28">
+      <div>
+        <a href="downloads.html" class="inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-yt-surface hover:bg-yt-surface2 text-sm transition animate__animated animate__fadeInDown">
+          <span class="badge-new !bg-yt-red !text-white">NEW</span>
+          <span><b x-text="$store.rel.latest.title"></b><span class="text-yt-muted hidden sm:inline" x-text="' · ' + MX.ago($store.rel.latest.date)"></span></span>
+          <i class="fa-solid fa-arrow-right text-xs text-yt-muted"></i>
+        </a>
+
+        <h1 class="mt-6 font-black tracking-tighter leading-[.98] text-[clamp(44px,8vw,92px)]" data-aos="fade-up">
+          YouTube,<br>but <span class="grad-text" x-ref="typed">yours.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-yt-muted max-w-xl leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+          MorpheX ships <b class="text-yt-text">pre-built YouTube Morphe APKs</b> - the community continuation of RVX. Ad-free playback, Material You, Picture-in-Picture, SponsorBlock and a settings menu that goes all the way down.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mt-9" data-aos="fade-up" data-aos-delay="200">
+          <button class="btn-xl red" @click="MX.askDownload($store.rel.latest)">
+            <i class="fa-brands fa-android text-xl"></i>
+            <span class="text-left leading-tight">Download for Android<small class="block text-[11px] font-medium opacity-85" x-text="'v' + $store.rel.latest.ver + ' · ' + MX.size($store.rel.latest.primary.s)"></small></span>
+          </button>
+          <a href="#install" class="btn-xl ghost"><i class="fa-solid fa-circle-play"></i> How to install</a>
+        </div>
+        <p class="mt-4 text-sm text-yt-muted" data-aos="fade-up" data-aos-delay="250"><i class="fa-solid fa-circle-info mr-1"></i>Non-root? You’ll also need <a href="#install" class="underline">MicroG</a> for sign-in.</p>
+
+        <div class="flex flex-wrap gap-x-8 gap-y-3 mt-10 text-sm" data-aos="fade-up" data-aos-delay="300">
+          <div><b class="text-2xl font-black block leading-none" x-countup="$store.rel.totalViews">0</b><span class="text-yt-muted">APK downloads</span></div>
+          <div><b class="text-2xl font-black block leading-none" x-countup="$store.rel.list.length">0</b><span class="text-yt-muted">releases</span></div>
+          <div><b class="text-2xl font-black block leading-none"><span x-countup="$store.rel.repo.stars">0</span> <i class="fa-solid fa-star text-yellow-400 text-lg"></i></b><span class="text-yt-muted">GitHub stars</span></div>
+        </div>
+      </div>
+
+      <!-- phone -->
+      <div class="relative flex justify-center lg:justify-end py-6" data-aos="zoom-in-left" data-aos-delay="150">
+        <div class="absolute w-[420px] h-[420px] rounded-full blur-3xl opacity-40" style="background:radial-gradient(circle,#ff0033,#7a2cff 60%,transparent 70%)"></div>
+        <div class="relative">
+        <div class="fchip z-10 -left-6 sm:-left-14 top-[14%]" style="animation-delay:-1s"><i style="background:#ff0033" class="fa-solid fa-ban"></i>Ad-free</div>
+        <div class="fchip z-10 -right-4 sm:-right-12 top-[30%]" style="animation-delay:-2.5s"><i style="background:#0a84ff" class="fa-solid fa-clone"></i>Picture-in-Picture</div>
+        <div class="fchip z-10 -left-8 sm:-left-16 bottom-[24%]" style="animation-delay:-3.5s"><i style="background:#00b894" class="fa-solid fa-forward-fast"></i>SponsorBlock</div>
+        <div class="fchip z-10 -right-2 sm:-right-10 bottom-[9%]" style="animation-delay:-4.5s"><i style="background:#f6a800" class="fa-solid fa-palette"></i>Material You</div>
+        <div class="phone rotate-[3deg] hover:rotate-0 transition-transform duration-500">
+          <div class="screen">
+            <div class="sbar">
+              <div class="app-logo"><i class="fa-solid fa-play"></i>MorpheX</div>
+              <span class="ml-auto flex gap-3 text-[13px]"><i class="fa-solid fa-tower-broadcast"></i><i class="fa-regular fa-bell"></i><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+            <div class="chips"><span>All</span><span>Music</span><span>Gaming</span><span>Live</span><span>Tech</span></div>
+            <div class="vid" style="--g1:#ff0033;--g2:#7a2cff">
+              <div class="absolute inset-0 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-black/45 flex items-center justify-center backdrop-blur"><i class="fa-solid fa-play text-white ml-0.5"></i></span></div>
+              <span class="absolute right-2 bottom-3 bg-black/75 px-1 rounded text-[9px]">12:04</span><div class="bar"></div>
+            </div>
+            <div class="row"><div class="av"></div><div class="flex-1"><div class="ln" style="width:92%"></div><div class="ln mt-1.5" style="width:55%"></div></div></div>
+            <div class="vid" style="--g1:#0a84ff;--g2:#3a0ca3"><div class="absolute inset-0 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-black/45 flex items-center justify-center"><i class="fa-solid fa-play text-white ml-0.5"></i></span></div></div>
+            <div class="row"><div class="av" style="background:linear-gradient(135deg,#0a84ff,#00b894)"></div><div class="flex-1"><div class="ln" style="width:80%"></div><div class="ln mt-1.5" style="width:40%"></div></div></div>
+            <div class="nav">
+              <div><i class="fa-solid fa-house"></i>Home</div>
+              <div><i class="fa-regular fa-square-plus"></i>Create</div>
+              <div><i class="fa-regular fa-rectangle-list"></i>Subs</div>
+              <div><i class="fa-regular fa-circle-user"></i>You</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <template x-for="n in 2" :key="n"><div class="flex"><template x-for="m in marquee" :key="m"><span><i class="fa-solid fa-play text-[10px]"></i><span class="!p-0" x-text="m"></span></span></template></div></template>
+    </div>
+  </div>
+
+  <!-- =====================================================  FEATURES -->
+  <section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 scroll-mt-20">
+    <div class="max-w-2xl" data-aos="fade-up">
+      <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Features</span>
+      <h2 class="h-section mt-3">Everything you wish the stock app did.</h2>
+      <p class="text-yt-muted text-lg mt-4">MorpheX builds on Morphe’s patches, so you get the good stuff without a single extra step after installing.</p>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 mt-12">
+      <template x-for="(f,i) in features" :key="f.t">
+        <article class="fcard" :style="'--g1:'+f.g1+';--g2:'+f.g2+';--glow:'+f.glow" data-aos="fade-up" :data-aos-delay="(i%4)*80">
+          <div class="ficon"><i class="fa-solid" :class="f.i"></i></div>
+          <h3 class="text-lg font-bold" x-text="f.t"></h3>
+          <p class="text-sm text-yt-muted mt-2 leading-relaxed" x-text="f.d"></p>
+        </article>
+      </template>
+    </div>
+  </section>
+
+  <!-- =====================================================  CUSTOMIZE -->
+  <section id="customize" class="max-w-7xl mx-auto px-4 sm:px-6 pt-28 scroll-mt-20">
+    <div class="grid lg:grid-cols-[1fr_1fr] gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <div data-aos="fade-up">
+          <span class="eyebrow"><i class="fa-solid fa-sliders"></i> Make it yours</span>
+          <h2 class="h-section mt-3">Your app.<br>Your rules.</h2>
+          <p class="text-yt-muted text-lg mt-4">Every interface tweak is a toggle in <b class="text-yt-text">Morphe Settings</b>. Flip a few below to see the idea - the names shown are the real setting keys.</p>
+        </div>
+
+        <div class="inline-flex mt-6 p-1 rounded-full bg-yt-surface text-sm font-medium" role="tablist" aria-label="Preview mode">
+          <button class="px-4 py-1.5 rounded-full transition" :class="mode==='stock' ? 'bg-yt-text text-yt-bg' : 'text-yt-muted'" @click="mode='stock'" role="tab">Stock app</button>
+          <button class="px-4 py-1.5 rounded-full transition" :class="mode==='morphex' ? 'bg-yt-red text-white' : 'text-yt-muted'" @click="mode='morphex'" role="tab">With MorpheX</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3 mt-5 transition" :class="mode==='stock' && 'opacity-40 pointer-events-none'">
+          <template x-for="x in opts" :key="x.k">
+            <button class="tgl" :class="x.on && 'on'" @click="x.on = !x.on" role="switch" :aria-checked="x.on">
+              <span class="sw"></span>
+              <span class="min-w-0"><b class="block text-sm" x-text="x.t"></b><span class="mono block truncate" x-text="x.k"></span></span>
+            </button>
+          </template>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 mt-5 text-sm">
+          <button class="pill-btn" @click="allOn()">Turn everything on</button>
+          <button class="pill-btn" @click="resetOpts()">Reset</button>
+          <span class="text-yt-muted"><i class="fa-solid fa-circle-info mr-1"></i>Illustration - the real app has many more options.</span>
+        </div>
+      </div>
+
+      <!-- customise phone -->
+      <div class="order-1 lg:order-2 flex justify-center" data-aos="zoom-in">
+        <div class="phone">
+          <div class="screen">
+            <div class="sbar">
+              <div class="app-logo"><i class="fa-solid fa-play"></i>MorpheX
+                <span x-show="mode==='morphex' && o.header_logo" x-transition class="text-[8px] font-bold tracking-wider text-white px-1 py-px rounded" style="background:linear-gradient(90deg,#ff0033,#a259ff)">PREMIUM</span></div>
+              <span class="ml-auto flex gap-3 text-[13px]">
+                <i class="fa-solid fa-tower-broadcast" x-show="!(mode==='morphex' && o.hide_cast_button)" x-transition></i>
+                <i class="fa-regular fa-bell"></i><i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </div>
+            <div class="chips" x-show="!(mode==='morphex' && o.hide_chips_shelf)" x-transition><span>All</span><span>Music</span><span>Gaming</span><span>Live</span><span>Tech</span></div>
+            <div class="adbar" x-show="mode==='stock'" x-transition><i class="fa-solid fa-rectangle-ad text-base"></i><span class="flex-1">Sponsored · skip in 5s</span><span class="px-1.5 py-0.5 bg-black/80 text-white rounded text-[9px]">Skip</span></div>
+            <div class="vid" style="--g1:#ff0033;--g2:#7a2cff">
+              <div class="absolute inset-0 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-black/45 flex items-center justify-center"><i class="fa-solid fa-play text-white ml-0.5"></i></span></div>
+              <div class="absolute left-2 top-2 bottom-2 w-7 rounded-full bg-black/45 backdrop-blur flex flex-col items-center justify-end py-1 gap-1" x-show="mode==='morphex' && o.swipe_brightness" x-transition>
+                <i class="fa-solid fa-sun text-[10px]"></i><div class="w-1 flex-1 rounded bg-white/30 relative overflow-hidden"><div class="absolute bottom-0 inset-x-0 bg-white" style="height:79%"></div></div><b class="text-[8px]">79%</b>
+              </div>
+              <div class="bar"></div>
+            </div>
+            <div class="row"><div class="av"></div><div class="flex-1"><div class="ln" style="width:92%"></div><div class="ln mt-1.5" style="width:55%"></div></div></div>
+            <div class="vid" style="--g1:#0a84ff;--g2:#3a0ca3"></div>
+            <div class="row"><div class="av" style="background:linear-gradient(135deg,#0a84ff,#00b894)"></div><div class="flex-1"><div class="ln" style="width:80%"></div><div class="ln mt-1.5" style="width:40%"></div></div></div>
+            <div class="nav">
+              <div><i class="fa-solid fa-house"></i>Home</div>
+              <div x-show="!(mode==='morphex' && o.hide_shorts_button)" x-transition><i class="fa-solid fa-bolt"></i>Shorts</div>
+              <div x-show="!(mode==='morphex' && o.swap_create_with_notifications_button)"><i class="fa-regular fa-square-plus"></i>Create</div>
+              <div x-show="mode==='morphex' && o.swap_create_with_notifications_button" x-transition><i class="fa-regular fa-bell"></i>Alerts</div>
+              <div><i class="fa-regular fa-rectangle-list"></i>Subs</div>
+              <div><i class="fa-regular fa-circle-user"></i>You</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  INSTALL -->
+  <section id="install" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+      <span class="eyebrow"><i class="fa-solid fa-list-check"></i> Install</span>
+      <h2 class="h-section mt-3">Up and running in four steps.</h2>
+      <p class="text-yt-muted text-lg mt-4">No root, no computer, no drama.</p>
+    </div>
+    <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 mt-16">
+      <template x-for="(s,i) in steps" :key="s.t">
+        <div class="stepcard" data-aos="fade-up" :data-aos-delay="i*100">
+          <span class="stepnum" x-text="i+1"></span>
+          <i class="fa-solid text-3xl text-yt-red mt-3" :class="s.i"></i>
+          <h3 class="text-lg font-bold mt-4" x-text="s.t"></h3>
+          <p class="text-sm text-yt-muted mt-2 leading-relaxed" x-text="s.d"></p>
+          <a x-show="s.cta" :href="s.cta && s.cta.u" class="dl-btn mt-4" @click="s.cta && s.cta.u === MX.microg && ($event.preventDefault(), MX.startDownload(MX.microg))"><i class="fa-solid fa-arrow-right"></i><span x-text="s.cta && s.cta.l"></span></a>
+        </div>
+      </template>
+    </div>
+
+    <!-- optional settings import -->
+    <div class="mt-10 rounded-3xl border border-yt-line bg-yt-bg2 overflow-hidden" data-aos="fade-up">
+      <div class="p-6 sm:p-8 flex flex-wrap items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-yt-surface flex items-center justify-center text-2xl text-yt-red flex-none"><i class="fa-solid fa-file-import"></i></div>
+        <div class="flex-1 min-w-[240px]">
+          <span class="badge-new">OPTIONAL</span>
+          <h3 class="text-xl font-bold mt-1">Import the recommended settings</h3>
+          <p class="text-sm text-yt-muted mt-1">Copy the settings text, then in the app: <b class="text-yt-text">Settings → Morphe Settings → Miscellaneous → Import/Export Settings</b>, paste, Import, Done.</p>
+        </div>
+        <div class="flex gap-2 flex-wrap">
+          <button class="pill-btn red !h-11 !px-5" @click="copySettings()"><i class="fa-regular fa-copy"></i> Copy settings</button>
+          <button class="pill-btn !h-11" @click="settingsOpen=!settingsOpen"><span x-text="settingsOpen ? 'Hide' : 'Preview'"></span> <i class="fa-solid fa-chevron-down text-xs transition" :class="settingsOpen && 'rotate-180'"></i></button>
+        </div>
+      </div>
+      <div x-show="settingsOpen" x-collapse x-cloak><pre class="code !rounded-none !border-x-0 !border-b-0" x-text="$store.rel.settings" tabindex="0"></pre></div>
+    </div>
+  </section>
+
+  <!-- =====================================================  LATEST RELEASE -->
+  <section id="get" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-10 items-center">
+      <div class="thumb !rounded-[28px] shadow-2xl" :style="$store.rel.latest.style" data-aos="fade-right">
+        <span class="tag-era !text-xs !top-4 !left-4">Latest stable</span>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="ver text-white text-5xl sm:text-8xl" x-text="$store.rel.latest.ver"></span>
+          <span class="text-white/85 text-sm font-bold tracking-[.4em] mt-3">YOUTUBE MORPHE</span>
+        </div>
+        <span class="patch !text-sm !left-4 !bottom-4" x-show="$store.rel.latest.patch" x-text="'patches v' + $store.rel.latest.patch"></span>
+        <span class="dur !right-4 !bottom-4" x-text="MX.size($store.rel.latest.primary.s)"></span>
+      </div>
+      <div data-aos="fade-left">
+        <span class="eyebrow"><i class="fa-solid fa-cloud-arrow-down"></i> Latest release</span>
+        <h2 class="h-section mt-3" x-text="$store.rel.latest.title"></h2>
+        <p class="text-yt-muted mt-3" x-text="MX.date($store.rel.latest.date) + ' · ' + MX.numFull($store.rel.latest.views) + ' downloads' + ($store.rel.latest.patch ? ' · patches v' + $store.rel.latest.patch : '')"></p>
+        <p class="mt-4 leading-relaxed">Updated to the latest version, fixes most of the reported issues. Straight from the maintainer’s GitHub releases - the same file, one click away.</p>
+        <div class="flex flex-wrap gap-3 mt-7">
+          <button class="btn-xl red" @click="MX.askDownload($store.rel.latest)"><i class="fa-solid fa-download"></i> Download APK</button>
+          <a href="downloads.html" class="btn-xl ghost"><i class="fa-solid fa-clock-rotate-left"></i> All versions</a>
+        </div>
+        <p class="text-xs text-yt-muted mt-4 break-all"><i class="fa-solid fa-link mr-1"></i><span x-text="$store.rel.latest.primary.url"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  STORY -->
+  <section id="story" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="grid lg:grid-cols-[1fr_1fr] gap-14">
+      <div data-aos="fade-up">
+        <span class="eyebrow"><i class="fa-solid fa-timeline"></i> The story</span>
+        <h2 class="h-section mt-3">From ReVanced to RVX to Morphe.</h2>
+        <p class="text-yt-muted text-lg mt-4 leading-relaxed"><b class="text-yt-text">MorpheX</b> is a community-maintained project that follows the transition from <b class="text-yt-text">RVX (ReVanced Extended)</b> after its discontinuation by <b class="text-yt-text">inotia00</b>. It now adopts <b class="text-yt-text">Morphe</b> as its base, continuing development through community-supported patches and tooling for YouTube and YouTube Music.</p>
+        <div class="mt-6 p-4 rounded-2xl banner-warn text-sm leading-relaxed"><i class="fa-solid fa-triangle-exclamation text-amber-400 mr-1"></i>
+          <b>Unofficial distribution.</b> This project is not affiliated with or endorsed by Morphe. It exists solely to distribute pre-built APKs generated with publicly available, upstream tools. <button class="underline" @click="MX.legal()">Details</button></div>
+      </div>
+      <div class="space-y-8" data-aos="fade-up" data-aos-delay="100">
+        <template x-for="(e,i) in eraInfo" :key="e.id">
+          <div class="tl tl-item" :class="i < eraInfo.length-1 && 'past'">
+            <span class="tl-dot"></span>
+            <div class="text-xs font-bold tracking-widest text-yt-red uppercase" x-text="eraFirst(e.id) ? 'Since ' + MX.date(eraFirst(e.id)) : ''"></div>
+            <h3 class="text-xl font-bold mt-1" x-text="e.t"></h3>
+            <p class="text-sm text-yt-muted mt-1 leading-relaxed" x-text="e.d"></p>
+            <div class="text-xs text-yt-muted mt-2"><span x-text="eraCount(e.id)"></span> releases</div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- recent releases -->
+    <div class="mt-16" data-aos="fade-up">
+      <div class="flex items-end justify-between mb-5"><h3 class="text-xl font-bold">Recent releases</h3><a href="downloads.html" class="text-yt-blue text-sm font-medium">View all <span x-text="$store.rel.list.length"></span> <i class="fa-solid fa-arrow-right text-xs"></i></a></div>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <template x-for="r in $store.rel.list.slice(0,4)" :key="r.tag">
+          <a :href="'downloads.html#'+r.tag" class="vcard flex gap-3 p-3 rounded-2xl bg-yt-bg2 border border-yt-line hover:border-yt-surface2 transition">
+            <div class="thumb w-24 flex-none !rounded-xl" :style="r.style"><div class="absolute inset-0 flex items-center justify-center"><span class="ver text-white text-lg" x-text="r.ver"></span></div></div>
+            <div class="min-w-0 text-sm"><b class="block truncate" x-text="r.title"></b><span class="text-xs text-yt-muted block" x-text="MX.date(r.date)"></span><span class="text-xs text-yt-muted" x-text="MX.num(r.views) + ' downloads'"></span></div>
+          </a>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  FAQ -->
+  <section id="faq" class="max-w-3xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="text-center" data-aos="fade-up">
+      <span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+      <h2 class="h-section mt-3">Questions, answered.</h2>
+    </div>
+    <div class="mt-10" data-aos="fade-up" data-aos-delay="100">
+      <template x-for="(f,i) in faqs" :key="f.q">
+        <div class="faq" :class="openFaq===i && 'open'">
+          <button @click="openFaq = openFaq===i ? -1 : i" :aria-expanded="openFaq===i"><span x-text="f.q"></span><i class="fa-solid fa-chevron-down"></i></button>
+          <div x-show="openFaq===i" x-collapse><p class="px-6 pb-5 text-yt-muted leading-relaxed" x-html="f.a"></p></div>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <!-- =====================================================  CTA -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-32">
+    <div class="cta-band" data-aos="zoom-in">
+      <h2 class="font-black tracking-tighter text-[clamp(32px,6vw,64px)] leading-none">Ready to make YouTube yours?</h2>
+      <p class="mt-4 text-lg text-white/90 max-w-xl mx-auto">Grab the latest APK, add MicroG if you’re not rooted, and you’re watching in under five minutes.</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        <button class="btn-xl !bg-white !text-black" @click="MX.askDownload($store.rel.latest)"><i class="fa-solid fa-download"></i> Download MorpheX</button>
+        <a :href="MX.links.telegram" target="_blank" rel="noopener" class="btn-xl !bg-black/30 !text-white backdrop-blur"><i class="fa-brands fa-telegram"></i> Join the Telegram</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8 text-sm text-white/85">
+        <a class="hover:underline" :href="MX.links.discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord mr-1"></i>Discord</a>
+        <a class="hover:underline" :href="MX.links.reddit" target="_blank" rel="noopener"><i class="fa-brands fa-reddit-alien mr-1"></i>Reddit</a>
+        <a class="hover:underline" :href="MX.links.x" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter mr-1"></i>X</a>
+        <a class="hover:underline" :href="MX.links.repo" target="_blank" rel="noopener"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+</main>
+</body>
+</html>
