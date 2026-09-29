@@ -178,11 +178,15 @@
     const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = t === 'dark' ? '#0f0f0f' : '#ffffff';
   };
 
+  /* ---------- layout: 'site' = landing-page nav/footer, default = app shell ---------- */
+  const SITE = document.body.dataset.layout === 'site';
+
   /* ---------- sidebar mode ---------- */
   const mobile = () => matchMedia('(max-width: 1023px)').matches;
   MX.sb = {
-    init() { document.documentElement.dataset.sb = mobile() ? 'hidden' : MX.store.get('mx-sb', 'full'); },
+    init() { document.documentElement.dataset.sb = SITE || mobile() ? 'hidden' : MX.store.get('mx-sb', 'full'); },
     toggle() {
+      if (SITE) return;
       const d = document.documentElement.dataset;
       if (mobile()) d.sb = d.sb === 'full' ? 'hidden' : 'full';
       else { d.sb = d.sb === 'full' ? 'mini' : 'full'; MX.store.set('mx-sb', d.sb); }
@@ -317,10 +321,71 @@
     <p class="mt-2">Download counts, sizes and dates come straight from the <a class="underline" href="${MX.links.releases}" target="_blank" rel="noopener">GitHub releases</a> of this repository.</p>
   </footer>`;
 
+
+  const siteNav = () => `
+  <header id="sitenav" x-data="sitenav()" @scroll.window="scrolled = window.scrollY > 12" :class="scrolled && 'scrolled'" @keydown.escape.window="open=false">
+    <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 flex items-center gap-4">
+      <a href="index.html" class="flex items-center gap-1.5 flex-none" aria-label="MorpheX home">
+        <span class="logo-mark"><i class="fa-solid fa-play"></i></span>
+        <span class="logo-word">Morphe<b>X</b></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 ml-6" aria-label="Main">
+        <a class="navlink" href="index.html#features">Features</a>
+        <a class="navlink" href="index.html#customize">Customize</a>
+        <a class="navlink" href="index.html#install">Install</a>
+        <a class="navlink" href="index.html#story">Story</a>
+        <a class="navlink" href="index.html#faq">FAQ</a>
+        <a class="navlink ${page() === 'downloads' ? 'active' : ''}" href="downloads.html">Downloads</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-2">
+        <a href="${MX.links.repo}" target="_blank" rel="noopener" class="pill-btn hidden sm:inline-flex" data-tip="Star MorpheX on GitHub"><i class="fa-brands fa-github"></i> <span x-text="MX.num($store.rel.repo.stars)"></span> <i class="fa-solid fa-star text-yellow-400 text-xs"></i></a>
+        <button class="icon-btn" :data-tip="$store.ui.theme==='dark' ? 'Light theme (t)' : 'Dark theme (t)'" @click="$store.ui.toggleTheme()" aria-label="Toggle theme"><i class="fa-solid" :class="$store.ui.theme==='dark' ? 'fa-sun' : 'fa-moon'"></i></button>
+        <a href="downloads.html" class="pill-btn red hidden sm:inline-flex"><i class="fa-solid fa-download"></i> Download</a>
+        <button class="icon-btn lg:hidden" @click="open=!open" aria-label="Menu" :aria-expanded="open"><i class="fa-solid" :class="open ? 'fa-xmark' : 'fa-bars'"></i></button>
+      </div>
+    </div>
+    <div class="lg:hidden mnav" x-show="open" x-cloak x-transition @click="open=false">
+      <a href="index.html#features">Features</a><a href="index.html#customize">Customize</a><a href="index.html#install">Install</a>
+      <a href="index.html#story">Story</a><a href="index.html#faq">FAQ</a><a href="downloads.html">Downloads</a>
+      <a href="downloads.html" class="pill-btn red justify-center mt-2"><i class="fa-solid fa-download"></i> Download the APK</a>
+    </div>
+  </header>`;
+
+  const siteFooter = () => `
+  <footer class="border-t border-yt-line mt-24 bg-yt-bg2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <a href="index.html" class="flex items-center gap-1.5"><span class="logo-mark"><i class="fa-solid fa-play"></i></span><span class="logo-word">Morphe<b>X</b></span></a>
+        <p class="text-sm text-yt-muted mt-4 max-w-xs leading-relaxed">Pre-built YouTube Morphe APKs - the community continuation of RVX (ReVanced Extended).</p>
+        <div class="flex gap-2 mt-5">
+          <a class="icon-btn bg-yt-surface" href="${MX.links.repo}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="icon-btn bg-yt-surface" href="${MX.links.telegram}" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a class="icon-btn bg-yt-surface" href="${MX.links.discord}" target="_blank" rel="noopener" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          <a class="icon-btn bg-yt-surface" href="${MX.links.reddit}" target="_blank" rel="noopener" aria-label="Reddit"><i class="fa-brands fa-reddit-alien"></i></a>
+          <a class="icon-btn bg-yt-surface" href="${MX.links.x}" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="text-sm"><b class="block mb-3">Product</b><div class="flex flex-col gap-2 text-yt-muted">
+        <a href="index.html#features">Features</a><a href="index.html#customize">Customize</a><a href="index.html#install">Install guide</a><a href="downloads.html">Downloads</a></div></div>
+      <div class="text-sm"><b class="block mb-3">Project</b><div class="flex flex-col gap-2 text-yt-muted">
+        <a href="index.html#story">Story</a><a href="index.html#faq">FAQ</a><a href="${MX.links.releases}" target="_blank" rel="noopener">GitHub releases</a><a href="${MX.links.issues}" target="_blank" rel="noopener">Report an issue</a></div></div>
+      <div class="text-sm"><b class="block mb-3">Upstream</b><div class="flex flex-col gap-2 text-yt-muted">
+        <a href="${MX.links.site}" target="_blank" rel="noopener">Morphe</a><a href="${MX.links.docs}" target="_blank" rel="noopener">Documentation</a><a href="${MX.links.microgReleases}" target="_blank" rel="noopener">MicroG-RE</a><a href="${MX.links.translate}" target="_blank" rel="noopener">Translations</a></div></div>
+    </div>
+    <div class="border-t border-yt-line">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 text-xs text-yt-muted leading-relaxed">
+        <b class="text-yt-text">Unofficial distribution.</b> MorpheX is not affiliated with or endorsed by Morphe, and is not affiliated with YouTube or Google. All credits belong to their respective developers.
+        This project distributes pre-built APKs made with publicly available upstream tools and does not host proprietary content.
+        <button class="underline ml-1" onclick="MX.legal()">Legal notice</button>
+        <div class="mt-2">© <span id="yr"></span> MorpheX community · Release data mirrored from GitHub.</div>
+      </div>
+    </div>
+  </footer>`;
+
   const mount = () => {
-    document.body.insertAdjacentHTML('afterbegin', shell());
+    document.body.insertAdjacentHTML('afterbegin', SITE ? siteNav() : shell());
     const slot = document.getElementById('footer-slot');
-    if (slot) slot.outerHTML = footer();
+    if (slot) slot.outerHTML = SITE ? siteFooter() : footer();
     const yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
   };
   // Scripts are `defer`red so the DOM is already parsed here.
@@ -371,6 +436,8 @@
         this.live = true; this.state = 'live';
       },
     });
+
+    Alpine.data('sitenav', () => ({ scrolled: false, open: false }));
 
     Alpine.data('topbar', () => ({
       q: '', focus: false, idx: -1, notif: false, avatarMenu: false, listening: false, mobileSearch: false,
@@ -444,6 +511,7 @@
   });
 
   window.addEventListener('resize', () => {
+    if (SITE) return;
     const d = document.documentElement.dataset;
     if (mobile() && d.sb === 'mini') d.sb = 'hidden';
     if (!mobile() && d.sb === 'hidden') d.sb = MX.store.get('mx-sb', 'full');

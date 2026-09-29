@@ -56,7 +56,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
-<body data-page="downloads" x-data="dl()" @load.window="window.AOS && (AOS.init({ once: true, duration: 500, offset: 40 }), document.documentElement.classList.remove('no-aos'))">
+<body data-page="downloads" data-layout="site" x-data="dl()" @load.window="window.AOS && (AOS.init({ once: true, duration: 500, offset: 40 }), document.documentElement.classList.remove('no-aos'))">
 <!-- header + sidebar are injected by assets/common.js -->
 
 <main id="main">
@@ -65,7 +65,7 @@
       <a href="https://github.com/Svznify/MorpheX/releases" style="text-decoration:underline">GitHub releases page</a>.</div>
   </noscript>
 
-  <div class="px-4 sm:px-6 pt-4">
+  <div class="px-4 sm:px-6 pt-4 max-w-7xl mx-auto">
     <!-- ===== channel art ===== -->
     <div class="banner-art flex items-end p-6 sm:p-8 text-white" data-aos="fade-down">
       <i class="fa-solid fa-play absolute -right-6 -top-6 text-[190px] opacity-20 -rotate-12"></i>

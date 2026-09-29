@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MorpheX — YouTube Morphe APKs, pre-built & ready to install</title>
-  <meta name="description" content="MorpheX distributes pre-built YouTube Morphe (the RVX / ReVanced Extended successor) APKs: ad-free playback, Material You, PiP, SponsorBlock and deep customisation. Unofficial community releases.">
+  <title>MorpheX — YouTube Morphe, pre-built and ready to install</title>
+  <meta name="description" content="MorpheX distributes pre-built YouTube Morphe APKs - the community continuation of RVX (ReVanced Extended). Ad-free playback, Material You, Picture-in-Picture, SponsorBlock and deep customisation. Unofficial.">
   <meta name="theme-color" content="#0f0f0f">
-  <meta property="og:title" content="MorpheX — YouTube Morphe APKs">
-  <meta property="og:description" content="Pre-built YouTube Morphe APKs: ad-free playback, Material You, PiP, SponsorBlock. Unofficial community releases.">
+  <meta property="og:title" content="MorpheX — YouTube Morphe, pre-built">
+  <meta property="og:description" content="Ad-free playback, Material You, PiP, SponsorBlock and deep customisation. Pre-built YouTube Morphe APKs for Android. Unofficial community releases.">
   <meta property="og:image" content="https://github.com/user-attachments/assets/d75dfcd7-d7cd-4438-a462-edd273705666">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='14' width='56' height='36' rx='11' fill='%23ff0033'/%3E%3Cpath d='M27 24l14 8-14 8z' fill='%23fff'/%3E%3C/svg%3E">
 
-  <!-- apply saved / system theme before paint -->
   <script>
     (function () {
       var t = null;
@@ -39,14 +38,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/scale.css">
   <link rel="stylesheet" href="assets/app.css">
 
   <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -55,495 +52,317 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script defer src="assets/data.js"></script>
   <script defer src="assets/common.js"></script>
-  <script defer src="assets/home.js"></script>
+  <script defer src="assets/landing.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
-<body data-page="home" x-data="home()" @load.window="window.AOS && (AOS.init({ once: true, duration: 600, offset: 60 }), document.documentElement.classList.remove('no-aos'))">
-<!-- header + sidebar are injected by assets/common.js -->
+<body data-page="home" data-layout="site" x-data="landing()" @load.window="window.AOS && (AOS.init({ once: true, duration: 700, offset: 60, easing: 'ease-out-cubic' }), document.documentElement.classList.remove('no-aos'))">
+<!-- navbar + footer are injected by assets/common.js -->
 
 <main id="main">
   <noscript>
-    <div style="padding:24px;font-size:16px">This page needs JavaScript. You can still grab the APKs from the
+    <div style="padding:96px 24px 24px;font-size:16px">MorpheX distributes pre-built YouTube Morphe APKs. This page needs JavaScript - you can still grab the APKs from the
       <a href="https://github.com/Svznify/MorpheX/releases" style="text-decoration:underline">GitHub releases</a>.</div>
   </noscript>
 
-  <!-- ===== chip bar (scroll-spy navigation) ===== -->
-  <nav class="chipbar" aria-label="Sections">
-    <template x-for="s in sections" :key="s.id">
-      <button class="chip" :class="active===s.id && 'on'" @click="jump(s.id)"><i class="fa-solid" :class="s.i"></i><span x-text="s.t"></span></button>
-    </template>
-    <a href="downloads.html" class="chip !bg-yt-red !text-white ml-auto"><i class="fa-solid fa-download"></i>Downloads</a>
-  </nav>
+  <!-- =====================================================  HERO -->
+  <section class="hero">
+    <div class="mesh"></div><div class="dotgrid"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center pb-20 lg:pb-28">
+      <div>
+        <a href="downloads.html" class="inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-yt-surface hover:bg-yt-surface2 text-sm transition animate__animated animate__fadeInDown">
+          <span class="badge-new !bg-yt-red !text-white">NEW</span>
+          <span><b x-text="$store.rel.latest.title"></b><span class="text-yt-muted hidden sm:inline" x-text="' · ' + MX.ago($store.rel.latest.date)"></span></span>
+          <i class="fa-solid fa-arrow-right text-xs text-yt-muted"></i>
+        </a>
 
-  <!-- ===== breaking-news ticker ===== -->
-  <div class="ticker py-1.5" aria-hidden="true">
-    <div class="ticker-track">
-      <template x-for="n in 2" :key="n">
-        <span>
-          <b class="text-yt-red"><i class="fa-solid fa-circle text-[8px] animate__animated animate__flash animate__infinite animate__slow"></i> NEW</b>
-          <span class="ml-2" x-text="$store.rel.latest.title + ' is out' + ($store.rel.latest.patch ? ' · patches v' + $store.rel.latest.patch : '')"></span><span class="sep">●</span>
-          <span>MicroG-RE 6.1.1 fixes Google sign-in issues</span><span class="sep">●</span>
-          <span x-text="MX.numFull($store.rel.totalViews) + ' downloads served across ' + $store.rel.list.length + ' releases'"></span><span class="sep">●</span>
-          <span>Morphe replaces RVX after inotia00’s discontinuation</span><span class="sep">●</span>
-          <span>SponsorBlock, PiP &amp; Material You built in</span><span class="sep">●</span>
-          <span>Report bugs on GitHub Issues</span><span class="sep">●</span>
-        </span>
+        <h1 class="mt-6 font-black tracking-tighter leading-[.98] text-[clamp(44px,8vw,92px)]" data-aos="fade-up">
+          YouTube,<br>but <span class="grad-text" x-ref="typed">yours.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-yt-muted max-w-xl leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+          MorpheX ships <b class="text-yt-text">pre-built YouTube Morphe APKs</b> - the community continuation of RVX. Ad-free playback, Material You, Picture-in-Picture, SponsorBlock and a settings menu that goes all the way down.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mt-9" data-aos="fade-up" data-aos-delay="200">
+          <button class="btn-xl red" @click="MX.askDownload($store.rel.latest)">
+            <i class="fa-brands fa-android text-xl"></i>
+            <span class="text-left leading-tight">Download for Android<small class="block text-[11px] font-medium opacity-85" x-text="'v' + $store.rel.latest.ver + ' · ' + MX.size($store.rel.latest.primary.s)"></small></span>
+          </button>
+          <a href="#install" class="btn-xl ghost"><i class="fa-solid fa-circle-play"></i> How to install</a>
+        </div>
+        <p class="mt-4 text-sm text-yt-muted" data-aos="fade-up" data-aos-delay="250"><i class="fa-solid fa-circle-info mr-1"></i>Non-root? You’ll also need <a href="#install" class="underline">MicroG</a> for sign-in.</p>
+
+        <div class="flex flex-wrap gap-x-8 gap-y-3 mt-10 text-sm" data-aos="fade-up" data-aos-delay="300">
+          <div><b class="text-2xl font-black block leading-none" x-countup="$store.rel.totalViews">0</b><span class="text-yt-muted">APK downloads</span></div>
+          <div><b class="text-2xl font-black block leading-none" x-countup="$store.rel.list.length">0</b><span class="text-yt-muted">releases</span></div>
+          <div><b class="text-2xl font-black block leading-none"><span x-countup="$store.rel.repo.stars">0</span> <i class="fa-solid fa-star text-yellow-400 text-lg"></i></b><span class="text-yt-muted">GitHub stars</span></div>
+        </div>
+      </div>
+
+      <!-- phone -->
+      <div class="relative flex justify-center lg:justify-end py-6" data-aos="zoom-in-left" data-aos-delay="150">
+        <div class="absolute w-[420px] h-[420px] rounded-full blur-3xl opacity-40" style="background:radial-gradient(circle,#ff0033,#7a2cff 60%,transparent 70%)"></div>
+        <div class="relative">
+        <div class="fchip z-10 -left-6 sm:-left-14 top-[14%]" style="animation-delay:-1s"><i style="background:#ff0033" class="fa-solid fa-ban"></i>Ad-free</div>
+        <div class="fchip z-10 -right-4 sm:-right-12 top-[30%]" style="animation-delay:-2.5s"><i style="background:#0a84ff" class="fa-solid fa-clone"></i>Picture-in-Picture</div>
+        <div class="fchip z-10 -left-8 sm:-left-16 bottom-[24%]" style="animation-delay:-3.5s"><i style="background:#00b894" class="fa-solid fa-forward-fast"></i>SponsorBlock</div>
+        <div class="fchip z-10 -right-2 sm:-right-10 bottom-[9%]" style="animation-delay:-4.5s"><i style="background:#f6a800" class="fa-solid fa-palette"></i>Material You</div>
+        <div class="phone rotate-[3deg] hover:rotate-0 transition-transform duration-500">
+          <div class="screen">
+            <div class="sbar">
+              <div class="app-logo"><i class="fa-solid fa-play"></i>MorpheX</div>
+              <span class="ml-auto flex gap-3 text-[13px]"><i class="fa-solid fa-tower-broadcast"></i><i class="fa-regular fa-bell"></i><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+            <div class="chips"><span>All</span><span>Music</span><span>Gaming</span><span>Live</span><span>Tech</span></div>
+            <div class="vid" style="--g1:#ff0033;--g2:#7a2cff">
+              <div class="absolute inset-0 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-black/45 flex items-center justify-center backdrop-blur"><i class="fa-solid fa-play text-white ml-0.5"></i></span></div>
+              <span class="absolute right-2 bottom-3 bg-black/75 px-1 rounded text-[9px]">12:04</span><div class="bar"></div>
+            </div>
+            <div class="row"><div class="av"></div><div class="flex-1"><div class="ln" style="width:92%"></div><div class="ln mt-1.5" style="width:55%"></div></div></div>
+            <div class="vid" style="--g1:#0a84ff;--g2:#3a0ca3"><div class="absolute inset-0 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-black/45 flex items-center justify-center"><i class="fa-solid fa-play text-white ml-0.5"></i></span></div></div>
+            <div class="row"><div class="av" style="background:linear-gradient(135deg,#0a84ff,#00b894)"></div><div class="flex-1"><div class="ln" style="width:80%"></div><div class="ln mt-1.5" style="width:40%"></div></div></div>
+            <div class="nav">
+              <div><i class="fa-solid fa-house"></i>Home</div>
+              <div><i class="fa-regular fa-square-plus"></i>Create</div>
+              <div><i class="fa-regular fa-rectangle-list"></i>Subs</div>
+              <div><i class="fa-regular fa-circle-user"></i>You</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <template x-for="n in 2" :key="n"><div class="flex"><template x-for="m in marquee" :key="m"><span><i class="fa-solid fa-play text-[10px]"></i><span class="!p-0" x-text="m"></span></span></template></div></template>
+    </div>
+  </div>
+
+  <!-- =====================================================  FEATURES -->
+  <section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 scroll-mt-20">
+    <div class="max-w-2xl" data-aos="fade-up">
+      <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Features</span>
+      <h2 class="h-section mt-3">Everything you wish the stock app did.</h2>
+      <p class="text-yt-muted text-lg mt-4">MorpheX builds on Morphe’s patches, so you get the good stuff without a single extra step after installing.</p>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 mt-12">
+      <template x-for="(f,i) in features" :key="f.t">
+        <article class="fcard" :style="'--g1:'+f.g1+';--g2:'+f.g2+';--glow:'+f.glow" data-aos="fade-up" :data-aos-delay="(i%4)*80">
+          <div class="ficon"><i class="fa-solid" :class="f.i"></i></div>
+          <h3 class="text-lg font-bold" x-text="f.t"></h3>
+          <p class="text-sm text-yt-muted mt-2 leading-relaxed" x-text="f.d"></p>
+        </article>
       </template>
     </div>
-  </div>
+  </section>
 
-  <div class="px-4 sm:px-6 pt-4">
-    <!-- ===== unofficial notice ===== -->
-    <div class="banner-warn p-3 pr-4 flex items-start gap-3 mb-5 text-sm" x-data="{ on: true }" x-show="on" x-transition>
-      <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5"></i>
-      <p class="flex-1 leading-relaxed"><b>Unofficial distribution.</b> MorpheX is not affiliated with or endorsed by Morphe. It only distributes pre-built APKs made with publicly available upstream tools; all credits belong to their developers.
-        <button class="underline ml-1" @click="MX.legal()">Read the notice</button></p>
-      <button class="icon-btn !w-7 !h-7" @click="on=false" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+  <!-- =====================================================  CUSTOMIZE -->
+  <section id="customize" class="max-w-7xl mx-auto px-4 sm:px-6 pt-28 scroll-mt-20">
+    <div class="grid lg:grid-cols-[1fr_1fr] gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <div data-aos="fade-up">
+          <span class="eyebrow"><i class="fa-solid fa-sliders"></i> Make it yours</span>
+          <h2 class="h-section mt-3">Your app.<br>Your rules.</h2>
+          <p class="text-yt-muted text-lg mt-4">Every interface tweak is a toggle in <b class="text-yt-text">Morphe Settings</b>. Flip a few below to see the idea - the names shown are the real setting keys.</p>
+        </div>
+
+        <div class="inline-flex mt-6 p-1 rounded-full bg-yt-surface text-sm font-medium" role="tablist" aria-label="Preview mode">
+          <button class="px-4 py-1.5 rounded-full transition" :class="mode==='stock' ? 'bg-yt-text text-yt-bg' : 'text-yt-muted'" @click="mode='stock'" role="tab">Stock app</button>
+          <button class="px-4 py-1.5 rounded-full transition" :class="mode==='morphex' ? 'bg-yt-red text-white' : 'text-yt-muted'" @click="mode='morphex'" role="tab">With MorpheX</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3 mt-5 transition" :class="mode==='stock' && 'opacity-40 pointer-events-none'">
+          <template x-for="x in opts" :key="x.k">
+            <button class="tgl" :class="x.on && 'on'" @click="x.on = !x.on" role="switch" :aria-checked="x.on">
+              <span class="sw"></span>
+              <span class="min-w-0"><b class="block text-sm" x-text="x.t"></b><span class="mono block truncate" x-text="x.k"></span></span>
+            </button>
+          </template>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 mt-5 text-sm">
+          <button class="pill-btn" @click="allOn()">Turn everything on</button>
+          <button class="pill-btn" @click="resetOpts()">Reset</button>
+          <span class="text-yt-muted"><i class="fa-solid fa-circle-info mr-1"></i>Illustration - the real app has many more options.</span>
+        </div>
+      </div>
+
+      <!-- customise phone -->
+      <div class="order-1 lg:order-2 flex justify-center" data-aos="zoom-in">
+        <div class="phone">
+          <div class="screen">
+            <div class="sbar">
+              <div class="app-logo"><i class="fa-solid fa-play"></i>MorpheX
+                <span x-show="mode==='morphex' && o.header_logo" x-transition class="text-[8px] font-bold tracking-wider text-white px-1 py-px rounded" style="background:linear-gradient(90deg,#ff0033,#a259ff)">PREMIUM</span></div>
+              <span class="ml-auto flex gap-3 text-[13px]">
+                <i class="fa-solid fa-tower-broadcast" x-show="!(mode==='morphex' && o.hide_cast_button)" x-transition></i>
+                <i class="fa-regular fa-bell"></i><i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </div>
+            <div class="chips" x-show="!(mode==='morphex' && o.hide_chips_shelf)" x-transition><span>All</span><span>Music</span><span>Gaming</span><span>Live</span><span>Tech</span></div>
+            <div class="adbar" x-show="mode==='stock'" x-transition><i class="fa-solid fa-rectangle-ad text-base"></i><span class="flex-1">Sponsored · skip in 5s</span><span class="px-1.5 py-0.5 bg-black/80 text-white rounded text-[9px]">Skip</span></div>
+            <div class="vid" style="--g1:#ff0033;--g2:#7a2cff">
+              <div class="absolute inset-0 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-black/45 flex items-center justify-center"><i class="fa-solid fa-play text-white ml-0.5"></i></span></div>
+              <div class="absolute left-2 top-2 bottom-2 w-7 rounded-full bg-black/45 backdrop-blur flex flex-col items-center justify-end py-1 gap-1" x-show="mode==='morphex' && o.swipe_brightness" x-transition>
+                <i class="fa-solid fa-sun text-[10px]"></i><div class="w-1 flex-1 rounded bg-white/30 relative overflow-hidden"><div class="absolute bottom-0 inset-x-0 bg-white" style="height:79%"></div></div><b class="text-[8px]">79%</b>
+              </div>
+              <div class="bar"></div>
+            </div>
+            <div class="row"><div class="av"></div><div class="flex-1"><div class="ln" style="width:92%"></div><div class="ln mt-1.5" style="width:55%"></div></div></div>
+            <div class="vid" style="--g1:#0a84ff;--g2:#3a0ca3"></div>
+            <div class="row"><div class="av" style="background:linear-gradient(135deg,#0a84ff,#00b894)"></div><div class="flex-1"><div class="ln" style="width:80%"></div><div class="ln mt-1.5" style="width:40%"></div></div></div>
+            <div class="nav">
+              <div><i class="fa-solid fa-house"></i>Home</div>
+              <div x-show="!(mode==='morphex' && o.hide_shorts_button)" x-transition><i class="fa-solid fa-bolt"></i>Shorts</div>
+              <div x-show="!(mode==='morphex' && o.swap_create_with_notifications_button)"><i class="fa-regular fa-square-plus"></i>Create</div>
+              <div x-show="mode==='morphex' && o.swap_create_with_notifications_button" x-transition><i class="fa-regular fa-bell"></i>Alerts</div>
+              <div><i class="fa-regular fa-rectangle-list"></i>Subs</div>
+              <div><i class="fa-regular fa-circle-user"></i>You</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  INSTALL -->
+  <section id="install" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+      <span class="eyebrow"><i class="fa-solid fa-list-check"></i> Install</span>
+      <h2 class="h-section mt-3">Up and running in four steps.</h2>
+      <p class="text-yt-muted text-lg mt-4">No root, no computer, no drama.</p>
+    </div>
+    <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 mt-16">
+      <template x-for="(s,i) in steps" :key="s.t">
+        <div class="stepcard" data-aos="fade-up" :data-aos-delay="i*100">
+          <span class="stepnum" x-text="i+1"></span>
+          <i class="fa-solid text-3xl text-yt-red mt-3" :class="s.i"></i>
+          <h3 class="text-lg font-bold mt-4" x-text="s.t"></h3>
+          <p class="text-sm text-yt-muted mt-2 leading-relaxed" x-text="s.d"></p>
+          <a x-show="s.cta" :href="s.cta && s.cta.u" class="dl-btn mt-4" @click="s.cta && s.cta.u === MX.microg && ($event.preventDefault(), MX.startDownload(MX.microg))"><i class="fa-solid fa-arrow-right"></i><span x-text="s.cta && s.cta.l"></span></a>
+        </div>
+      </template>
     </div>
 
-    <!-- ===== WATCH LAYOUT ===== -->
-    <section id="watch" class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_402px]">
-      <div class="min-w-0">
-        <!-- player -->
-        <div class="player" x-ref="player" @dblclick="fullscreen()" data-aos="fade-up">
-          <div class="mesh"></div><div class="grain"></div>
-          <i class="fa-solid fa-play float-ico text-[140px] left-[6%] top-[12%]"></i>
-          <i class="fa-solid fa-forward-fast float-ico text-[90px] right-[8%] bottom-[24%]" style="animation-delay:-3s"></i>
-          <i class="fa-solid fa-clone float-ico text-[70px] left-[42%] top-[8%]" style="animation-delay:-5s"></i>
-
-          <!-- top overlay -->
-          <div class="absolute top-0 inset-x-0 p-3 sm:p-4 flex items-start justify-between z-10 bg-gradient-to-b from-black/60 to-transparent text-white">
-            <div class="text-sm sm:text-lg font-medium leading-tight pr-3">MorpheX — <span x-ref="typed"></span></div>
-            <div class="flex gap-1 flex-none">
-              <button class="ctl" data-tip="Watch later" @click="MX.toast('Bookmark this page (Ctrl+D) to watch later','fa-clock')"><i class="fa-regular fa-clock"></i></button>
-              <button class="ctl" data-tip="Share" @click="share()"><i class="fa-solid fa-share"></i></button>
-            </div>
-          </div>
-
-          <!-- slides -->
-          <div class="swiper h-full" x-ref="swiper" @click="togglePlay()">
-            <div class="swiper-wrapper">
-              <template x-for="(s,i) in slides" :key="i">
-                <div class="swiper-slide hero-slide flex flex-col items-center justify-center text-center text-white px-8 sm:px-16">
-                  <template x-if="i===0">
-                    <img src="https://github.com/user-attachments/assets/d75dfcd7-d7cd-4438-a462-edd273705666" alt="" referrerpolicy="no-referrer" onerror="this.remove()"
-                         class="hidden md:block absolute right-[6%] top-1/2 -translate-y-1/2 h-[68%] rounded-2xl shadow-2xl rotate-3 opacity-95">
-                  </template>
-                  <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-3xl bg-white/15 backdrop-blur flex items-center justify-center text-3xl sm:text-5xl mb-4 animate__animated animate__bounceIn" ><i class="fa-solid" :class="s.ico"></i></div>
-                  <h2 class="text-2xl sm:text-5xl font-black tracking-tight" x-text="s.t"></h2>
-                  <p class="mt-2 sm:mt-3 text-sm sm:text-xl text-white/85 max-w-xl" x-text="s.s"></p>
-                </div>
-              </template>
-            </div>
-          </div>
-
-          <!-- big play / paused -->
-          <button class="absolute inset-0 m-auto big-play z-10" style="width:84px;height:84px" x-show="paused && !adActive" x-cloak @click="togglePlay()" aria-label="Play"><i class="fa-solid fa-play ml-1"></i></button>
-
-          <!-- (joke) pre-roll ad -->
-          <div class="ad-overlay" x-show="adActive" x-transition.opacity>
-            <span class="absolute top-3 left-3 bg-yellow-400 text-black text-xs font-bold px-1.5 py-0.5 rounded">Ad · 1 of 1</span>
-            <span class="absolute top-3 right-3 text-sm text-white/70" x-text="'Video will play after ad · 0:0' + adLeft"></span>
-            <i class="fa-solid fa-ban text-5xl text-yt-red mb-3 animate__animated animate__pulse animate__infinite"></i>
-            <h3 class="text-xl sm:text-3xl font-black">Your favourite ad, brought to you by… nobody.</h3>
-            <p class="text-white/70 mt-2 text-sm sm:text-base max-w-md">MorpheX has no ads. This is the last one you’ll ever see - go on, skip it.</p>
-            <button class="skip-btn" x-show="canSkip" x-transition @click="skipAd()">Skip Ad <i class="fa-solid fa-forward-step"></i></button>
-            <span class="skip-btn !border-transparent !bg-black/60 text-white/70" x-show="!canSkip" x-text="'Skip in ' + (adLeft-3) + '…'"></span>
-            <div class="absolute bottom-0 inset-x-0 h-1 bg-yellow-400 origin-left transition-all duration-1000 ease-linear" :style="'transform:scaleX(' + (adLeft/5) + ')'"></div>
-          </div>
-
-          <!-- controls -->
-          <div class="player-controls autohide" x-show="!adActive">
-            <div class="seek" @click="seek($event)" role="slider" aria-label="Seek" :aria-valuenow="Math.round(progress*100)">
-              <div class="fill" :style="'width:' + (progress*100) + '%'"></div>
-              <template x-for="m in slides.length-1" :key="m"><div class="mark" :style="'left:' + (m/slides.length*100) + '%'"></div></template>
-              <div class="knob" :style="'left:' + (progress*100) + '%'"></div>
-            </div>
-            <div class="flex items-center gap-1">
-              <button class="ctl" @click="togglePlay()" :data-tip="paused ? 'Play' : 'Pause'"><i class="fa-solid" :class="paused ? 'fa-play' : 'fa-pause'"></i></button>
-              <button class="ctl" @click="next()" data-tip="Next"><i class="fa-solid fa-forward-step"></i></button>
-              <button class="ctl" @click="muted=!muted" data-tip="Mute"><i class="fa-solid" :class="muted ? 'fa-volume-xmark' : 'fa-volume-high'"></i></button>
-              <span class="text-xs sm:text-sm ml-1 tabular-nums" x-text="mmss(cur) + ' / ' + mmss(total)"></span>
-              <span class="hidden sm:inline text-sm ml-2 opacity-90">• <span x-text="slides[idx].t"></span> ›</span>
-              <span class="flex-1"></span>
-              <button class="ctl" data-tip="Subtitles/closed captions" @click="MX.toast('Captions: none available, only vibes','fa-closed-captioning')"><i class="fa-regular fa-closed-captioning"></i></button>
-              <button class="ctl" data-tip="Settings" @click="MX.toast('Quality: 4K. Ads: 0. Regrets: 0.','fa-gear')"><i class="fa-solid fa-gear"></i></button>
-              <button class="ctl" data-tip="Full screen (double-click)" @click="fullscreen()"><i class="fa-solid" :class="fs ? 'fa-compress' : 'fa-expand'"></i></button>
-            </div>
-          </div>
+    <!-- optional settings import -->
+    <div class="mt-10 rounded-3xl border border-yt-line bg-yt-bg2 overflow-hidden" data-aos="fade-up">
+      <div class="p-6 sm:p-8 flex flex-wrap items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-yt-surface flex items-center justify-center text-2xl text-yt-red flex-none"><i class="fa-solid fa-file-import"></i></div>
+        <div class="flex-1 min-w-[240px]">
+          <span class="badge-new">OPTIONAL</span>
+          <h3 class="text-xl font-bold mt-1">Import the recommended settings</h3>
+          <p class="text-sm text-yt-muted mt-1">Copy the settings text, then in the app: <b class="text-yt-text">Settings → Morphe Settings → Miscellaneous → Import/Export Settings</b>, paste, Import, Done.</p>
         </div>
-
-        <!-- title -->
-        <h1 class="text-xl font-bold mt-3 leading-snug" data-aos="fade-up">
-          MorpheX — YouTube Morphe, pre-built: ad-free, Material You, PiP &amp; SponsorBlock <span class="hashtag text-base font-normal">#Android #NoRoot</span>
-        </h1>
-
-        <!-- channel row + actions -->
-        <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-3" data-aos="fade-up">
-          <div class="flex items-center gap-3 min-w-0">
-            <a href="downloads.html"><img :src="MX.avatar" alt="Svznify" class="w-10 h-10 rounded-full" referrerpolicy="no-referrer"></a>
-            <div class="leading-tight min-w-0">
-              <a href="downloads.html" class="font-medium flex items-center gap-1">Svznify <i class="fa-solid fa-circle-check verified"></i></a>
-              <span class="text-xs text-yt-muted"><span x-countup="$store.rel.repo.stars">0</span> stars · <span x-text="$store.rel.repo.forks"></span> forks</span>
-            </div>
-          </div>
-          <button class="pill-btn" :class="subbed ? '' : 'primary'" @click="subscribe()" data-tip="Star &amp; watch the repo on GitHub">
-            <template x-if="subbed"><span><i class="fa-regular fa-bell mr-1"></i> Subscribed <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span></template>
-            <template x-if="!subbed"><span>Subscribe</span></template>
-          </button>
-          <div class="flex items-center gap-2 ml-auto flex-wrap">
-            <div class="flex rounded-full overflow-hidden bg-yt-surface">
-              <a :href="MX.links.repo" target="_blank" rel="noopener" class="px-4 h-9 flex items-center gap-2 hover:bg-yt-surface2 text-sm font-medium border-r border-yt-line" data-tip="I like this - star on GitHub"><i class="fa-regular fa-thumbs-up"></i><span x-text="MX.num($store.rel.repo.stars)"></span></a>
-              <button class="px-4 h-9 hover:bg-yt-surface2" @click="dislike()" data-tip="I dislike this" aria-label="Dislike"><i class="fa-regular fa-thumbs-down"></i></button>
-            </div>
-            <button class="pill-btn" @click="share()"><i class="fa-solid fa-share"></i> Share</button>
-            <button class="pill-btn red" @click="MX.askDownload($store.rel.latest)"><i class="fa-solid fa-download"></i> Download <span class="hidden sm:inline opacity-90" x-text="'v' + $store.rel.latest.ver"></span></button>
-            <div class="relative" @click.outside="menu=false">
-              <button class="icon-btn bg-yt-surface hover:!bg-yt-surface2" @click="menu=!menu" aria-label="More"><i class="fa-solid fa-ellipsis"></i></button>
-              <div class="dropdown !w-60 !top-11 py-2 text-sm" x-show="menu" x-cloak x-transition>
-                <button class="sb-item w-full" @click="MX.copy($store.rel.latest.primary.url,'APK link copied'); menu=false"><i class="ico fa-solid fa-link"></i>Copy direct APK link</button>
-                <a class="sb-item" :href="MX.links.newIssue" target="_blank" rel="noopener"><i class="ico fa-regular fa-flag"></i>Report</a>
-                <a class="sb-item" :href="MX.links.repo" target="_blank" rel="noopener"><i class="ico fa-brands fa-github"></i>Show source</a>
-                <button class="sb-item w-full" @click="MX.shortcuts(); menu=false"><i class="ico fa-regular fa-keyboard"></i>Shortcuts</button>
-              </div>
-            </div>
-          </div>
+        <div class="flex gap-2 flex-wrap">
+          <button class="pill-btn red !h-11 !px-5" @click="copySettings()"><i class="fa-regular fa-copy"></i> Copy settings</button>
+          <button class="pill-btn !h-11" @click="settingsOpen=!settingsOpen"><span x-text="settingsOpen ? 'Hide' : 'Preview'"></span> <i class="fa-solid fa-chevron-down text-xs transition" :class="settingsOpen && 'rotate-180'"></i></button>
         </div>
-
-        <!-- description -->
-        <div class="desc-box mt-4 cursor-pointer" @click="descOpen=!descOpen" data-aos="fade-up">
-          <div class="font-medium">
-            <span x-text="MX.numFull($store.rel.totalViews)"></span> downloads&nbsp;&nbsp;<span x-text="MX.ago($store.rel.latest.date)"></span>&nbsp;&nbsp;
-            <span class="hashtag">#YouTube</span> <span class="hashtag">#Morphe</span> <span class="hashtag">#RVX</span> <span class="hashtag">#Android</span>
-          </div>
-          <div class="mt-2 leading-relaxed">
-            <p><b>MorpheX (Morphe)</b> is a community-maintained project that follows the transition from <b>RVX (ReVanced Extended)</b> after its discontinuation by inotia00. It now adopts <b>Morphe</b> as its base, continuing development through community-supported patches and tooling for <b>YouTube</b> and <b>YouTube Music</b>.</p>
-            <p class="mt-2 text-yt-muted" x-show="!descOpen">…more</p>
-          </div>
-          <div x-show="descOpen" x-collapse @click.stop>
-            <ul class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1">
-              <li><i class="fa-solid fa-check text-green-500 w-5"></i>Ad-free playback</li>
-              <li><i class="fa-solid fa-check text-green-500 w-5"></i>Material You support</li>
-              <li><i class="fa-solid fa-check text-green-500 w-5"></i>Picture-in-Picture (PiP)</li>
-              <li><i class="fa-solid fa-check text-green-500 w-5"></i>SponsorBlock integration</li>
-              <li><i class="fa-solid fa-check text-green-500 w-5"></i>Advanced customisation options</li>
-              <li><i class="fa-solid fa-check text-green-500 w-5"></i>Works without root (MicroG required)</li>
-            </ul>
-            <h3 class="font-bold mt-4 mb-1">Chapters</h3>
-            <ul>
-              <template x-for="c in chapters" :key="c.id">
-                <li><a :href="'#'+c.id" class="hashtag" @click.prevent="jump(c.id)" x-text="c.t"></a> <span x-text="c.l"></span></li>
-              </template>
-            </ul>
-            <h3 class="font-bold mt-4 mb-1">Links</h3>
-            <ul class="space-y-0.5">
-              <li>Releases: <a class="hashtag" :href="MX.links.releases" target="_blank" rel="noopener">github.com/Svznify/MorpheX/releases</a></li>
-              <li>MicroG (non-root): <a class="hashtag" :href="MX.links.microgReleases" target="_blank" rel="noopener">MorpheApp/MicroG-RE</a></li>
-              <li>Morphe: <a class="hashtag" :href="MX.links.site" target="_blank" rel="noopener">morphe.software</a> · <a class="hashtag" :href="MX.links.docs" target="_blank" rel="noopener">Documentation</a></li>
-              <li>Community: <a class="hashtag" :href="MX.links.telegram" target="_blank" rel="noopener">Telegram</a> · <a class="hashtag" :href="MX.links.discord" target="_blank" rel="noopener">Discord</a> · <a class="hashtag" :href="MX.links.reddit" target="_blank" rel="noopener">Reddit</a> · <a class="hashtag" :href="MX.links.x" target="_blank" rel="noopener">X</a></li>
-            </ul>
-            <p class="mt-4 text-yt-muted text-xs">Unofficial: not affiliated with or endorsed by Morphe. Credits belong to their respective developers.</p>
-            <button class="font-medium mt-3" @click="descOpen=false">Show less</button>
-          </div>
-          <button class="font-medium mt-1" x-show="!descOpen">Show more</button>
-        </div>
-
-        <!-- COMMENTS -->
-        <section id="comments" data-spy class="mt-6 scroll-mt-32" data-aos="fade-up">
-          <div class="flex items-center gap-8 mb-5">
-            <h2 class="text-xl font-bold"><span x-text="faqs.length"></span> Comments</h2>
-            <div class="flex gap-1 text-sm font-medium">
-              <button class="px-3 py-1 rounded-full" :class="cSort==='top' ? 'bg-yt-text text-yt-bg' : 'bg-yt-surface'" @click="cSort='top'"><i class="fa-solid fa-arrow-down-wide-short mr-1"></i>Top</button>
-              <button class="px-3 py-1 rounded-full" :class="cSort==='new' ? 'bg-yt-text text-yt-bg' : 'bg-yt-surface'" @click="cSort='new'">Newest</button>
-            </div>
-          </div>
-          <div class="flex gap-3 mb-6">
-            <img :src="MX.avatar" class="w-10 h-10 rounded-full" alt="" referrerpolicy="no-referrer">
-            <div class="flex-1">
-              <input class="w-full bg-transparent border-b border-yt-surface2 focus:border-yt-text outline-none py-1 text-sm" placeholder="Ask a question (opens a GitHub issue)…" x-model="newComment" @focus="composing=true" @keydown.enter="postComment()">
-              <div class="flex justify-end gap-2 mt-2" x-show="composing" x-cloak x-transition>
-                <button class="pill-btn !bg-transparent" @click="composing=false; newComment=''">Cancel</button>
-                <button class="pill-btn" :class="newComment.trim() ? 'blue !bg-yt-blue !text-yt-bg' : 'opacity-50'" :disabled="!newComment.trim()" @click="postComment()">Comment</button>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-5">
-            <template x-for="(f,i) in sortedFaqs" :key="f.a">
-              <div class="flex gap-3">
-                <div class="comment-avatar" :style="'background:'+f.c"><i class="fa-solid" :class="f.i"></i></div>
-                <div class="flex-1 min-w-0">
-                  <div class="pinned mb-0.5" x-show="f.pinned"><i class="fa-solid fa-thumbtack"></i> Pinned by Svznify</div>
-                  <div class="text-[13px]"><b x-text="'@' + f.a.toLowerCase().replaceAll(' ','-')"></b> <span class="text-yt-muted ml-1" x-text="f.ago"></span></div>
-                  <p class="text-sm mt-1" x-text="f.q"></p>
-                  <div class="flex items-center gap-3 mt-1 text-yt-muted">
-                    <button class="icon-btn !w-8 !h-8" :class="liked[i] && '!text-yt-blue'" @click="liked[i]=!liked[i]" aria-label="Like"><i :class="liked[i] ? 'fa-solid' : 'fa-regular'" class="fa-thumbs-up"></i></button>
-                    <span class="text-xs -ml-2" x-show="liked[i]" x-text="1"></span>
-                    <span class="icon-btn !w-8 !h-8"><i class="fa-regular fa-thumbs-down"></i></span>
-                    <span class="relative" data-tip="Loved by Svznify"><img :src="MX.avatar" class="w-4 h-4 rounded-full" alt="" referrerpolicy="no-referrer"><i class="fa-solid fa-heart text-red-500 text-[8px] absolute -bottom-1 -right-1"></i></span>
-                  </div>
-                  <button class="text-yt-blue font-medium text-sm flex items-center gap-2 px-2 py-1 -ml-2 rounded-full hover:bg-yt-hover" @click="open[i]=!open[i]">
-                    <i class="fa-solid" :class="open[i] ? 'fa-caret-up' : 'fa-caret-down'"></i> 1 reply
-                  </button>
-                  <div x-show="open[i]" x-collapse class="flex gap-3 mt-2">
-                    <img :src="MX.avatar" class="w-6 h-6 rounded-full mt-0.5" alt="" referrerpolicy="no-referrer">
-                    <div class="text-sm">
-                      <div class="text-[13px]"><span class="author-pill">@Svznify</span> <i class="fa-solid fa-circle-check verified"></i></div>
-                      <p class="mt-1 leading-relaxed" x-html="f.r"></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </template>
-          </div>
-        </section>
       </div>
+      <div x-show="settingsOpen" x-collapse x-cloak><pre class="code !rounded-none !border-x-0 !border-b-0" x-text="$store.rel.settings" tabindex="0"></pre></div>
+    </div>
+  </section>
 
-      <!-- ===== right rail ===== -->
-      <aside class="min-w-0 space-y-4">
-        <!-- live chat -->
-        <div class="chat" data-aos="fade-left">
-          <div class="flex items-center justify-between px-4 py-3 border-b border-yt-line text-sm">
-            <b>Top chat replay</b>
-            <span class="text-yt-muted flex items-center gap-2"><i class="fa-solid fa-circle text-[7px] text-yt-red animate__animated animate__flash animate__infinite animate__slower"></i> project facts &amp; tips</span>
+  <!-- =====================================================  LATEST RELEASE -->
+  <section id="get" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-10 items-center">
+      <div class="thumb !rounded-[28px] shadow-2xl" :style="$store.rel.latest.style" data-aos="fade-right">
+        <span class="tag-era !text-xs !top-4 !left-4">Latest stable</span>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="ver text-white text-5xl sm:text-8xl" x-text="$store.rel.latest.ver"></span>
+          <span class="text-white/85 text-sm font-bold tracking-[.4em] mt-3">YOUTUBE MORPHE</span>
+        </div>
+        <span class="patch !text-sm !left-4 !bottom-4" x-show="$store.rel.latest.patch" x-text="'patches v' + $store.rel.latest.patch"></span>
+        <span class="dur !right-4 !bottom-4" x-text="MX.size($store.rel.latest.primary.s)"></span>
+      </div>
+      <div data-aos="fade-left">
+        <span class="eyebrow"><i class="fa-solid fa-cloud-arrow-down"></i> Latest release</span>
+        <h2 class="h-section mt-3" x-text="$store.rel.latest.title"></h2>
+        <p class="text-yt-muted mt-3" x-text="MX.date($store.rel.latest.date) + ' · ' + MX.numFull($store.rel.latest.views) + ' downloads' + ($store.rel.latest.patch ? ' · patches v' + $store.rel.latest.patch : '')"></p>
+        <p class="mt-4 leading-relaxed">Updated to the latest version, fixes most of the reported issues. Straight from the maintainer’s GitHub releases - the same file, one click away.</p>
+        <div class="flex flex-wrap gap-3 mt-7">
+          <button class="btn-xl red" @click="MX.askDownload($store.rel.latest)"><i class="fa-solid fa-download"></i> Download APK</button>
+          <a href="downloads.html" class="btn-xl ghost"><i class="fa-solid fa-clock-rotate-left"></i> All versions</a>
+        </div>
+        <p class="text-xs text-yt-muted mt-4 break-all"><i class="fa-solid fa-link mr-1"></i><span x-text="$store.rel.latest.primary.url"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================  STORY -->
+  <section id="story" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="grid lg:grid-cols-[1fr_1fr] gap-14">
+      <div data-aos="fade-up">
+        <span class="eyebrow"><i class="fa-solid fa-timeline"></i> The story</span>
+        <h2 class="h-section mt-3">From ReVanced to RVX to Morphe.</h2>
+        <p class="text-yt-muted text-lg mt-4 leading-relaxed"><b class="text-yt-text">MorpheX</b> is a community-maintained project that follows the transition from <b class="text-yt-text">RVX (ReVanced Extended)</b> after its discontinuation by <b class="text-yt-text">inotia00</b>. It now adopts <b class="text-yt-text">Morphe</b> as its base, continuing development through community-supported patches and tooling for YouTube and YouTube Music.</p>
+        <div class="mt-6 p-4 rounded-2xl banner-warn text-sm leading-relaxed"><i class="fa-solid fa-triangle-exclamation text-amber-400 mr-1"></i>
+          <b>Unofficial distribution.</b> This project is not affiliated with or endorsed by Morphe. It exists solely to distribute pre-built APKs generated with publicly available, upstream tools. <button class="underline" @click="MX.legal()">Details</button></div>
+      </div>
+      <div class="space-y-8" data-aos="fade-up" data-aos-delay="100">
+        <template x-for="(e,i) in eraInfo" :key="e.id">
+          <div class="tl tl-item" :class="i < eraInfo.length-1 && 'past'">
+            <span class="tl-dot"></span>
+            <div class="text-xs font-bold tracking-widest text-yt-red uppercase" x-text="eraFirst(e.id) ? 'Since ' + MX.date(eraFirst(e.id)) : ''"></div>
+            <h3 class="text-xl font-bold mt-1" x-text="e.t"></h3>
+            <p class="text-sm text-yt-muted mt-1 leading-relaxed" x-text="e.d"></p>
+            <div class="text-xs text-yt-muted mt-2"><span x-text="eraCount(e.id)"></span> releases</div>
           </div>
-          <div class="chat-body" x-ref="chat">
-            <template x-for="m in chat" :key="m.k">
-              <div class="chat-msg">
-                <span class="chat-av" :style="'background:'+m.bg" x-text="m.u[0].toUpperCase()"></span>
-                <span><span class="u" :class="m.c" x-text="m.u"></span><i class="fa-solid fa-wrench text-[10px] text-[#5e84f1] mr-1" x-show="m.c==='mod'"></i><span x-text="m.t"></span></span>
-              </div>
-            </template>
-          </div>
-          <a :href="MX.links.telegram" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-3 border-t border-yt-line text-sm text-yt-muted hover:bg-yt-hover">
-            <img :src="MX.avatar" class="w-6 h-6 rounded-full" alt="" referrerpolicy="no-referrer"> Chat is a replay - join the Telegram to talk <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-xs"></i>
+        </template>
+      </div>
+    </div>
+
+    <!-- recent releases -->
+    <div class="mt-16" data-aos="fade-up">
+      <div class="flex items-end justify-between mb-5"><h3 class="text-xl font-bold">Recent releases</h3><a href="downloads.html" class="text-yt-blue text-sm font-medium">View all <span x-text="$store.rel.list.length"></span> <i class="fa-solid fa-arrow-right text-xs"></i></a></div>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <template x-for="r in $store.rel.list.slice(0,4)" :key="r.tag">
+          <a :href="'downloads.html#'+r.tag" class="vcard flex gap-3 p-3 rounded-2xl bg-yt-bg2 border border-yt-line hover:border-yt-surface2 transition">
+            <div class="thumb w-24 flex-none !rounded-xl" :style="r.style"><div class="absolute inset-0 flex items-center justify-center"><span class="ver text-white text-lg" x-text="r.ver"></span></div></div>
+            <div class="min-w-0 text-sm"><b class="block truncate" x-text="r.title"></b><span class="text-xs text-yt-muted block" x-text="MX.date(r.date)"></span><span class="text-xs text-yt-muted" x-text="MX.num(r.views) + ' downloads'"></span></div>
           </a>
-        </div>
-
-        <!-- chips + autoplay -->
-        <div class="flex items-center justify-between">
-          <div class="flex gap-2 overflow-x-auto">
-            <button class="chip" :class="upFilter==='all' && 'on'" @click="upFilter='all'">All</button>
-            <button class="chip" :class="upFilter==='morphe' && 'on'" @click="upFilter='morphe'">Morphe</button>
-            <button class="chip" :class="upFilter==='popular' && 'on'" @click="upFilter='popular'">Most downloaded</button>
-          </div>
-          <label class="flex items-center gap-2 text-xs text-yt-muted cursor-pointer flex-none ml-2">Autoplay
-            <span class="relative w-9 h-4 rounded-full transition" :class="autoplay ? 'bg-yt-text' : 'bg-yt-surface2'">
-              <span class="absolute top-[-2px] w-5 h-5 rounded-full shadow transition-all" :class="autoplay ? 'left-4 bg-yt-red' : 'left-0 bg-yt-muted'"></span>
-              <input type="checkbox" class="sr-only" :checked="autoplay" @change="setAutoplay()">
-            </span>
-          </label>
-        </div>
-
-        <!-- up next -->
-        <div class="space-y-2">
-          <template x-for="(r,i) in upNext" :key="r.tag">
-            <a :href="'downloads.html#'+r.tag" class="vcard flex gap-2 group" data-aos="fade-left" :data-aos-delay="i*40">
-              <div class="thumb w-[168px] flex-none !rounded-lg" :style="r.style">
-                <span class="tag-era !top-1.5 !left-1.5" x-text="r.eraName"></span>
-                <div class="absolute inset-0 flex items-center justify-center"><span class="ver text-white text-3xl" x-text="r.ver"></span></div>
-                <span class="dur" x-text="MX.size(r.primary.s)"></span>
-                <div class="hover-play"><i class="fa-solid fa-download text-white text-xl"></i></div>
-              </div>
-              <div class="min-w-0 text-sm">
-                <div class="font-medium clamp2 leading-snug" x-text="r.title + (r.patch ? ' · patches v' + r.patch : '')"></div>
-                <div class="text-xs text-yt-muted mt-1 flex items-center gap-1">Svznify <i class="fa-solid fa-circle-check verified !text-[10px]"></i></div>
-                <div class="text-xs text-yt-muted"><span x-text="MX.num(r.views)"></span> downloads · <span x-text="MX.ago(r.date)"></span></div>
-                <span class="badge-new mt-1 inline-block" x-show="r.tag===$store.rel.latest.tag">LATEST</span>
-              </div>
-            </a>
-          </template>
-          <a href="downloads.html" class="pill-btn blue w-full justify-center mt-2">Show all <span x-text="$store.rel.list.length"></span> releases <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ===== SHORTS ===== -->
-    <section id="shorts" data-spy class="mt-12 scroll-mt-32">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-xl font-bold flex items-center gap-2"><span class="text-yt-red text-2xl"><i class="fa-solid fa-bolt"></i></span> Shorts <span class="text-sm font-normal text-yt-muted">- features in a flash</span></h2>
-        <div class="gap-2 hidden sm:flex">
-          <button x-ref="sprev" class="icon-btn bg-yt-surface" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button x-ref="snext" class="icon-btn bg-yt-surface" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-      </div>
-      <div class="swiper !overflow-visible sm:!overflow-hidden" x-ref="shorts">
-        <div class="swiper-wrapper">
-          <template x-for="s in shorts" :key="s.t">
-            <div class="swiper-slide">
-              <article class="short" :style="'--g1:'+s.g1+';--g2:'+s.g2">
-                <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-black/40 px-2 py-0.5 rounded" x-text="s.tag"></span>
-                <i class="fa-solid bigico" :class="s.ico"></i>
-                <div class="rail">
-                  <span><i class="fa-solid fa-thumbs-up"></i></span>
-                  <span><i class="fa-solid fa-comment"></i></span>
-                  <span><i class="fa-solid fa-share"></i></span>
-                </div>
-                <h3 class="font-black text-xl leading-tight pr-12" x-text="s.t"></h3>
-                <p class="text-sm text-white/85 mt-1 pr-12" x-text="s.d"></p>
-                <div class="flex items-center gap-2 mt-3 text-sm"><img :src="MX.avatar" class="w-6 h-6 rounded-full" alt="" referrerpolicy="no-referrer"> <b>@Svznify</b> <span class="bg-white/25 rounded-full px-2 text-xs">Subscribe</span></div>
-              </article>
-            </div>
-          </template>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== RECOMMENDED ===== -->
-    <section id="recs" data-spy class="mt-14 scroll-mt-32">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <h2 class="text-xl font-bold mr-2"><i class="fa-solid fa-thumbs-up text-yt-red mr-2"></i>Recommended downloads</h2>
-        <template x-for="f in [['all','All'],['new','Recently uploaded'],['popular','Most downloaded'],['morphe','Morphe'],['rvx','RVX'],['revanced','ReVanced']]" :key="f[0]">
-          <button class="chip" :class="recFilter===f[0] && 'on'" @click="recFilter=f[0]; recCount=12" x-text="f[1]"></button>
         </template>
       </div>
-      <div class="grid gap-x-4 gap-y-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        <template x-for="(r,i) in recs.slice(0, recCount)" :key="r.tag">
-          <article class="vcard" x-data="{ m:false }" data-aos="fade-up" :data-aos-delay="(i%4)*60">
-            <a :href="'downloads.html#'+r.tag" class="block">
-              <div class="thumb" :style="r.style">
-                <span class="tag-era" x-text="r.eraName"></span>
-                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                  <span class="ver text-white text-5xl sm:text-6xl" x-text="r.ver"></span>
-                  <span class="text-white/85 text-xs font-bold tracking-[.3em] mt-2" x-text="r.era==='revanced' ? 'REVANCED YOUTUBE' : 'YOUTUBE'"></span>
-                </div>
-                <span class="patch" x-show="r.patch" x-text="'patches v' + r.patch"></span>
-                <span class="dur" x-text="MX.size(r.primary.s)"></span>
-                <div class="hover-play"><span class="w-14 h-14 rounded-full bg-yt-red flex items-center justify-center text-white text-xl"><i class="fa-solid fa-download"></i></span></div>
-              </div>
-            </a>
-            <div class="flex gap-3 mt-3">
-              <img :src="MX.avatar" class="w-9 h-9 rounded-full flex-none" alt="" referrerpolicy="no-referrer">
-              <div class="min-w-0 flex-1">
-                <h3 class="font-medium leading-snug clamp2" x-text="r.title"></h3>
-                <div class="text-sm text-yt-muted mt-1 flex items-center gap-1">Svznify <i class="fa-solid fa-circle-check verified !text-[10px]"></i></div>
-                <div class="text-sm text-yt-muted"><span x-text="MX.numFull(r.views)"></span> downloads · <span x-text="MX.ago(r.date)"></span></div>
-                <span class="badge-new" x-show="r.tag===$store.rel.latest.tag">LATEST</span>
-              </div>
-              <div class="relative flex-none" @click.outside="m=false">
-                <button class="icon-btn menu-btn !w-8 !h-8" @click="m=!m" aria-label="Menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                <div class="dropdown !w-56 !top-9 py-2 text-sm" x-show="m" x-cloak x-transition>
-                  <button class="sb-item w-full" @click="MX.askDownload(r); m=false"><i class="ico fa-solid fa-download"></i>Download APK</button>
-                  <button class="sb-item w-full" @click="MX.copy(r.primary.url,'APK link copied'); m=false"><i class="ico fa-solid fa-link"></i>Copy APK link</button>
-                  <a class="sb-item" :href="r.page" target="_blank" rel="noopener"><i class="ico fa-brands fa-github"></i>Open on GitHub</a>
-                </div>
-              </div>
-            </div>
-          </article>
-        </template>
-      </div>
-      <div class="flex justify-center gap-3 mt-8">
-        <button class="pill-btn" x-show="recCount < recs.length" @click="recCount += 12">Show more</button>
-        <a href="downloads.html" class="pill-btn blue">Open the full download page <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== INSTALL PLAYLIST + SETTINGS ===== -->
-    <section class="mt-14 grid gap-6 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
-      <div id="install" data-spy class="scroll-mt-32 rounded-2xl bg-yt-bg2 border border-yt-line overflow-hidden self-start" data-aos="fade-right">
-        <div class="p-4" style="background-image:linear-gradient(135deg,rgba(255,0,51,.28),rgba(122,44,255,.18))">
-          <div class="text-xs uppercase tracking-widest text-yt-muted">Playlist</div>
-          <h2 class="text-xl font-bold">Install MorpheX in 5 videos</h2>
-          <div class="text-sm text-yt-muted mt-1">Svznify · <span x-text="done.length + ' / ' + steps.length"></span> watched</div>
-          <div class="h-1.5 rounded bg-yt-surface2 mt-3 overflow-hidden"><div class="h-full bg-yt-red transition-all duration-500" :style="'width:'+pct+'%'"></div></div>
+  <!-- =====================================================  FAQ -->
+  <section id="faq" class="max-w-3xl mx-auto px-4 sm:px-6 pt-32 scroll-mt-20">
+    <div class="text-center" data-aos="fade-up">
+      <span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+      <h2 class="h-section mt-3">Questions, answered.</h2>
+    </div>
+    <div class="mt-10" data-aos="fade-up" data-aos-delay="100">
+      <template x-for="(f,i) in faqs" :key="f.q">
+        <div class="faq" :class="openFaq===i && 'open'">
+          <button @click="openFaq = openFaq===i ? -1 : i" :aria-expanded="openFaq===i"><span x-text="f.q"></span><i class="fa-solid fa-chevron-down"></i></button>
+          <div x-show="openFaq===i" x-collapse><p class="px-6 pb-5 text-yt-muted leading-relaxed" x-html="f.a"></p></div>
         </div>
-        <div class="p-2">
-          <template x-for="(s,i) in steps" :key="i">
-            <div class="step" :class="done.includes(i) && 'done'" @click="toggleStep(i)">
-              <span class="step-n"><i class="fa-solid fa-check" x-show="done.includes(i)"></i><span x-show="!done.includes(i)" x-text="i+1"></span></span>
-              <div class="min-w-0">
-                <div class="font-medium step-t" x-text="s.t"></div>
-                <div class="text-sm text-yt-muted mt-0.5" x-text="s.d"></div>
-                <template x-if="s.a">
-                  <a :href="s.a.u" :target="s.a.u.startsWith('#') ? '_self' : '_blank'" rel="noopener" class="dl-btn mt-2" @click.stop><i class="fa-solid fa-arrow-up-right-from-square"></i><span x-text="s.a.l"></span></a>
-                </template>
-              </div>
-            </div>
-          </template>
-        </div>
-      </div>
+      </template>
+    </div>
+  </section>
 
-      <div id="settings" data-spy class="scroll-mt-32" data-aos="fade-left">
-        <h2 class="text-xl font-bold"><i class="fa-solid fa-sliders text-yt-red mr-2"></i>Import my settings for the best experience <span class="text-sm font-normal text-yt-muted">(optional)</span></h2>
-        <ol class="mt-3 text-sm space-y-2 list-decimal pl-5 leading-relaxed">
-          <li><b>Copy</b> the settings text below.</li>
-          <li>Install and open <b>YouTube Morphe</b>.</li>
-          <li>Go to <b>Settings</b> → <b>Morphe Settings</b> → <b>Miscellaneous</b> → <b>Import/Export Settings</b>.</li>
-          <li>Paste the text, click <b>Import</b>, then <b>Done</b>.</li>
-          <li>Sign in to your Google Account so you can view videos.</li>
-        </ol>
-        <div class="flex flex-wrap gap-2 mt-4">
-          <button class="pill-btn red" @click="MX.copy($store.rel.settings,'Settings copied - paste them in the app'); MX.confetti({particleCount:60,origin:{y:.8}})"><i class="fa-regular fa-copy"></i> Copy settings</button>
-          <button class="pill-btn" @click="saveSettings()"><i class="fa-solid fa-file-arrow-down"></i> Save as .txt</button>
-        </div>
-        <pre class="code mt-3" x-text="$store.rel.settings" tabindex="0"></pre>
-        <p class="text-xs text-yt-muted mt-2">Taken from the notes of the latest release. Tweaks include swipe-brightness/volume gestures, premium header logo, original icon and SponsorBlock set to manual skip.</p>
+  <!-- =====================================================  CTA -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-32">
+    <div class="cta-band" data-aos="zoom-in">
+      <h2 class="font-black tracking-tighter text-[clamp(32px,6vw,64px)] leading-none">Ready to make YouTube yours?</h2>
+      <p class="mt-4 text-lg text-white/90 max-w-xl mx-auto">Grab the latest APK, add MicroG if you’re not rooted, and you’re watching in under five minutes.</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        <button class="btn-xl !bg-white !text-black" @click="MX.askDownload($store.rel.latest)"><i class="fa-solid fa-download"></i> Download MorpheX</button>
+        <a :href="MX.links.telegram" target="_blank" rel="noopener" class="btn-xl !bg-black/30 !text-white backdrop-blur"><i class="fa-brands fa-telegram"></i> Join the Telegram</a>
       </div>
-    </section>
-
-    <!-- ===== CREDITS ===== -->
-    <section id="credits" data-spy class="mt-14 scroll-mt-32">
-      <h2 class="text-xl font-bold mb-4"><i class="fa-solid fa-heart text-yt-red mr-2"></i>Credits — the channels behind this channel</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        <template x-for="c in credits" :key="c.n">
-          <div class="text-center p-5 rounded-2xl bg-yt-bg2 border border-yt-line hover:-translate-y-1 transition" data-aos="zoom-in">
-            <div class="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl text-white" :style="'background:'+c.c"><i class="fa-solid" :class="c.i"></i></div>
-            <div class="font-medium mt-3 flex items-center justify-center gap-1"><span x-text="c.n"></span> <i class="fa-solid fa-circle-check verified"></i></div>
-            <div class="text-sm text-yt-muted" x-text="c.r"></div>
-            <a class="pill-btn mt-3 !h-8 text-xs" x-show="c.u" :href="c.u" target="_blank" rel="noopener">Visit</a>
-          </div>
-        </template>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8 text-sm text-white/85">
+        <a class="hover:underline" :href="MX.links.discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord mr-1"></i>Discord</a>
+        <a class="hover:underline" :href="MX.links.reddit" target="_blank" rel="noopener"><i class="fa-brands fa-reddit-alien mr-1"></i>Reddit</a>
+        <a class="hover:underline" :href="MX.links.x" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter mr-1"></i>X</a>
+        <a class="hover:underline" :href="MX.links.repo" target="_blank" rel="noopener"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
       </div>
-
-      <div class="mt-10 grid md:grid-cols-2 gap-6 items-center">
-        <div data-aos="fade-right">
-          <h3 class="text-lg font-bold mb-2"><i class="fa-solid fa-star text-yellow-400 mr-2"></i>Star history</h3>
-          <a :href="MX.links.stars" target="_blank" rel="noopener" class="block">
-            <img :src="'https://api.star-history.com/svg?repos=Svznify/MorpheX&type=date&legend=top-left&theme=' + ($store.ui.theme==='dark' ? 'dark' : 'light')" alt="Star history chart for Svznify/MorpheX" class="rounded-xl w-full bg-yt-bg2 border border-yt-line" @error="$el.style.display='none'; $el.nextElementSibling.style.display='flex'">
-            <span class="hidden rounded-xl bg-yt-bg2 border border-yt-line h-40 items-center justify-center text-yt-muted text-sm gap-2"><i class="fa-solid fa-chart-line"></i> Open the star history chart <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
-          </a>
-        </div>
-        <div class="rounded-2xl p-6 text-center" style="background:linear-gradient(135deg,rgba(255,0,51,.22),rgba(122,44,255,.22))" data-aos="fade-left">
-          <h3 class="text-2xl font-black">Ready when you are.</h3>
-          <p class="text-yt-muted mt-1 mb-4">Latest: <b class="text-yt-text" x-text="$store.rel.latest.title"></b> · <span x-text="MX.size($store.rel.latest.primary.s)"></span></p>
-          <div class="flex flex-wrap justify-center gap-3">
-            <button class="pill-btn red !h-11 !px-6 !text-base" @click="MX.askDownload($store.rel.latest)"><i class="fa-solid fa-download"></i> Download APK</button>
-            <a href="downloads.html" class="pill-btn !h-11 !px-6 !text-base">All releases</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <div id="footer-slot"></div>
 </main>
-
-<!-- ===== mini-player (appears when the player scrolls away) ===== -->
-<div class="mini-player" x-show="mini && !miniOff" x-cloak x-transition>
-  <div class="flex items-center gap-3 p-2 pr-3">
-    <div class="thumb w-[112px] flex-none !rounded-lg" :style="$store.rel.latest.style">
-      <div class="absolute inset-0 flex items-center justify-center"><span class="ver text-white text-xl" x-text="$store.rel.latest.ver"></span></div>
-    </div>
-    <div class="min-w-0 flex-1 text-sm leading-tight">
-      <div class="font-medium truncate" x-text="$store.rel.latest.title"></div>
-      <div class="text-xs text-yt-muted">Svznify · <span x-text="MX.size($store.rel.latest.primary.s)"></span></div>
-    </div>
-    <button class="icon-btn !w-9 !h-9 bg-yt-red text-white" @click="MX.askDownload($store.rel.latest)" data-tip="Download latest APK" aria-label="Download"><i class="fa-solid fa-download"></i></button>
-    <button class="icon-btn !w-9 !h-9" @click="window.scrollTo({top:0,behavior:'smooth'})" data-tip="Expand" aria-label="Back to player"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-    <button class="icon-btn !w-9 !h-9" @click="miniOff=true" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-</div>
-
-<!-- ===== cookie-style snackbar (this one is honest) ===== -->
-<div class="snack" x-show="snack" x-cloak x-transition>
-  <div class="flex items-start gap-3">
-    <i class="fa-solid fa-cookie-bite text-amber-400 text-xl mt-0.5"></i>
-    <div>This site sets <b>zero cookies</b>. It only calls the public GitHub API to keep download counts fresh, and remembers your theme and checklist in your browser.
-      <div class="mt-2 flex gap-4 font-medium"><button class="text-yt-blue !text-[#3ea6ff]" @click="closeSnack()">Got it</button></div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
